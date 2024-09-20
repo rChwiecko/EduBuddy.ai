@@ -1,7 +1,7 @@
-export default function chatSection(){
+export default function ChatSection() {
     return (
         <div>
-            chat
+            <h1>Text</h1>
         </div>
-    )
+    );
 }

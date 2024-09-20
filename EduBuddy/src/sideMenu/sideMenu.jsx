@@ -1,7 +1,7 @@
-export default function sideMenu(){
+export default function SideMenu(){
     return (
-        <div>
-            <h1>HIIIIIIIIIIIIIIIIIII</h1>
+        <div className="bg-primary-subtle w-25">
+            <h1>HIII</h1>
         </div>
     )
 }

@@ -1,15 +1,15 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
-import bodyMain from './body/body'
-
+import BodyMain from './body/body'
+import SideMenu from './sideMenu/sideMenu'
 function App() {
 
   return (
-    <>
-      <bodyMain/>
-    </>
+    <div className='d-flex position-absolute top-0 start-0 w-100 h-100'>
+      <SideMenu/>
+      <BodyMain/>
+    </div>
   )
 }
 

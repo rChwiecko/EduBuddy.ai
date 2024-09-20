@@ -25,10 +25,11 @@ export default function Footer() {
     }
 
     return (
-        <div>
+        <div className='w-100 pb-4 d-flex justify-content-center align-items-center'>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="prompt">Chat:</label> 
+                <label htmlFor="prompt" className='me-3'>Chat:</label> 
                 <input
+                    className='form-control flex-grow-1'
                     id="prompt"
                     name="prompt"
                     placeholder="Chat With EduBuddy"
@@ -36,7 +37,7 @@ export default function Footer() {
                     value={prompt}  // Bind input value to state
                     onChange={e => setPrompt(e.target.value)}  // Update state on input change
                 />
-                <button type="submit">Submit</button>
+                <button className="btn btn-primary ms-2" type="submit">Submit</button>
             </form>
         </div>
     );

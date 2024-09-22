@@ -10,7 +10,7 @@ export default function SideMenu() {
     };
 
     return (
-        <div className={`side-menu-container ${sideBarState ? 'open' : 'closed'} bg-dark`}>
+        <div className={`side-menu-container ${sideBarState ? 'open' : 'closed'} side`}>
             <div className='w-100 d-flex flex-row-reverse'>
                 <div className='arrow-outer' onClick={sideBarStatusChange}>
                     <div className={`arrow-inner ${sideBarState? 'open':'closed'}`}></div>

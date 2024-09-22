@@ -86,3 +86,8 @@
     transform: rotate(315deg);
     margin-right: 19%;
 }
+
+
+.side{
+    backdrop-filter: blur(10px);
+}

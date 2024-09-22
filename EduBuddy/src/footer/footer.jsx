@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './footer.css'
 export default function Footer() {
     const [prompt, setPrompt] = useState(''); 
     const [currentMessage, setCurrentMessage] = useState('');
@@ -26,9 +26,10 @@ export default function Footer() {
 
     return (
 <div className='container mt-5 w-100 d-flex justify-content-center pb-5'>
-    <form onSubmit={handleSubmit} className='d-flex align-items-center w-75'>
+    <form onSubmit={handleSubmit} className='d-flex align-items-center justify-content-center w-75'>
         <input
-            className='form-control me-2'
+            autoComplete='off'
+            className='input-box'
             id="prompt"
             name="prompt"
             placeholder="Chat With EduBuddy"

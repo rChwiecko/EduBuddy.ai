@@ -14,3 +14,7 @@
 .sidebar-closed {
     width: 90%; /* Takes up more space when the sidebar is closed */
 }
+
+.main{
+    background: linear-gradient(to bottom left, #FFFFFF 10%, #ADD8E6 70%);
+}

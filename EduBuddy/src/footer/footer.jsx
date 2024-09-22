@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import './footer.css'
-export default function Footer() {
+export default function Footer({addMessage}) {
     const [prompt, setPrompt] = useState(''); 
     const [currentMessage, setCurrentMessage] = useState('');
-
+    const [messages, setMessages] = useState([])
     const handlePrompt = (prompt) => {
         fetch('http://localhost:3000/chat', {
             method: 'POST',
@@ -12,17 +12,23 @@ export default function Footer() {
             },
             body: JSON.stringify({ prompt }),  // Send the prompt as a JSON string
         }).then(data => {
-            console.log("success", data);
+            // handleMessageReset(data)
         }).catch(err => {
             console.log(err);
         });
     }
 
+
     const handleSubmit = (event) => {
         event.preventDefault();  // Prevent the form from reloading the page
         handlePrompt(prompt);    // Call handlePrompt with the input value
+        addMessage(prompt, 'res')
         setPrompt('');           // Optionally clear the input after submission
     }
+
+    useEffect(() => {
+        console.log(messages);  // This will log the messages array every time it updates
+    }, [messages]);
 
     return (
             <div className='container mt-5 w-100 d-flex justify-content-center pb-5'>  

@@ -1,18 +1,26 @@
 import './chat.css'
-export default function ChatSection() {
+import { useEffect, useRef } from 'react';
+export default function ChatSection({ messages }) {
+    const chatEndRef = useRef(null);
+
+    const scrollToBottom = () => {
+        chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    useEffect(() => {
+        scrollToBottom();
+    }, [messages]);
     return (
         <div className="h-100 chat w-100">
             <div className='chat-section'>
-                <div className='user-message-body'>
-                    <div className="chat-bubble use">
-                        <p className='user-message'>Text</p>
-                    </div>
-                </div>
-                <div className='response-body'>
-                    <div className='chat-bubble res'>
-                        <p className='response'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse, nihil accusamus hic ratione quis dolores? Error laboriosam dolore et quam in? Sint excepturi nesciunt perferendis quaerat quidem vero voluptas corporis!</p>    
-                    </div>
-                </div>    
+                        {messages.map((message, index) => (
+                            <div className={`${message["origin"]}-body`}>
+                                <div key={index} className={`chat-bubble ${message["origin"]}`}>
+                                    {message["message"]}
+                                </div>
+                            </div>
+                        ))}
+                        <div ref={chatEndRef}/>
             </div>
         </div>
     );

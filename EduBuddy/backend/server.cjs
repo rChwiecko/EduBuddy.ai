@@ -8,7 +8,7 @@ app.use(cors())
 app.post('/chat', (req, res) => {
     const { prompt } = req.body;  // Destructure to get the prompt from the body
     console.log(prompt);  // This should now correctly log the prompt
-    res.body("success")
+    // res.body("success")
 });
 
 app.listen(3000, () => {

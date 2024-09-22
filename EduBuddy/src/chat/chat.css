@@ -24,7 +24,7 @@ p{
     flex-direction: column;
 }
 
-.user-message-body {
+.user-body {
     padding-right: 200px;
     width: 100%;
     display: flex;
@@ -32,7 +32,7 @@ p{
     justify-content: flex-end;
 }
 
-.response-body{
+.res-body{
     padding-left: 200px;
     width: 100%;
     display: flex;
@@ -54,6 +54,6 @@ p{
     background-color: #b0b0b0;
 }
 
-.use{
+.user{
     background-color: #f1f1f1;
 }

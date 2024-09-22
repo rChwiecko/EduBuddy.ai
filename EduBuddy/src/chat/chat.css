@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+
+p{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.user-message{
+    margin: 0px;
+}
+
+.response {
+    margin: 0px;
+}
+
 .chat {
     overflow-y:auto;
 }
@@ -7,4 +22,38 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.user-message-body {
+    padding-right: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.response-body{
+    padding-left: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.chat-bubble {
+    color: #333;
+    padding: 10px 15px; 
+    border-radius: 20px;
+    max-width: 40%;
+    word-wrap:break-word; 
+    white-space: pre-wrap; 
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+.res{
+    background-color: #b0b0b0;
+}
+
+.use{
+    background-color: #f1f1f1;
 }

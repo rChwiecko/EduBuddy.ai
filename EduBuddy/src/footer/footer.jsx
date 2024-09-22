@@ -36,7 +36,9 @@ export default function Footer() {
                     type="text"
                     value={prompt}  // Bind input value to state
                     onChange={e => setPrompt(e.target.value)}  // Update state on input change
-                    style={{ width: '75%' }}  // Set the input width to 75% of the form
+                    style={{ width: '75%',
+                            paddingLeft: '20px',
+                     }}  // Set the input width to 75% of the form
                 />
                 <button className='input-button' type="submit">Send</button>
                 </form>

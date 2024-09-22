@@ -5,7 +5,8 @@
     flex-direction: column;
     align-items: flex-start;
     height: 100vh; /* Full height */
-    transition: width 1s ease-in-out; /* Smooth transition for width */
+    transition-duration: 500ms;
+    transition-property: width;
     position: relative;
     overflow: hidden; /* Hide overflowing content */
     background-color: #f8f9fa; /* Assuming this is your 'bg-primary-subtle' */
@@ -14,10 +15,74 @@
 
 /* Sidebar when open */
 .side-menu-container.open {
-    width: 25%; /* Expand to 25% width when open */
+    width: 17%; /* Expand to 25% width when open */
 }
 
 /* Sidebar when closed */
 .side-menu-container.closed {
     width: 5%; /* Shrink to 5% width when closed */
+}
+
+.arrow-outer {
+    margin: 10px;
+    color: #262626;
+    background-color: #262626;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.arrow-outer:hover {
+    background-color: #0070ff; /* New background color on hover */
+}
+
+.arrow-inner {
+    transition: background-color 0.3s ease, border-color 0.3s ease; /* Transition for arrow color */
+    margin-left: 15%;
+    width: 10px;
+    height: 10px;
+    background-color: #262626; /* Background color of the arrow */
+    border: 2px solid #fff;
+    border-top: none;
+    border-left: none;
+}
+
+.arrow-outer:hover .arrow-inner {
+    background-color: #0070ff; /* Keep the inner arrow visible by ensuring it contrasts with the hover background */
+    border-color: #fff; /* Ensure the border color remains visible */
+}
+
+/* Keyframes for rotating the arrow */
+@keyframes rotate-open {
+    from {
+        transform: rotate(315deg);
+    }
+    to {
+        transform: rotate(135deg);
+    }
+}
+
+@keyframes rotate-closed {
+    from {
+        transform: rotate(135deg);
+    }
+    to {
+        transform: rotate(315deg);
+    }
+}
+
+/* Applying the animation */
+.arrow-inner.open {
+    animation: rotate-open 0.5s ease forwards; /* Smooth rotation to open */
+    transform: rotate(135deg);
+}
+
+.arrow-inner.closed {
+    animation: rotate-closed 0.5s ease forwards; /* Smooth rotation to closed */
+    transform: rotate(315deg);
+    margin-right: 19%;
 }

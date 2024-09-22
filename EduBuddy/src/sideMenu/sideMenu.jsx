@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './sideMenu.css'; // Import the CSS file for styling
 
 export default function SideMenu() {
-    const [sideBarState, setSideBarState] = useState(true);
+    const [sideBarState, setSideBarState] = useState(false);
 
     const sideBarStatusChange = (event) => {
         event.preventDefault();
@@ -10,21 +10,17 @@ export default function SideMenu() {
     };
 
     return (
-        <>
-            {sideBarState && (
-                <div className="side-menu-container open">
-                    <div className='d-flex flex-row-reverse w-100'>
-                        <button onClick={sideBarStatusChange} className="toggle-button">Close</button>
-                    </div>
-                    <div className="sidebar-content">
-                    </div>
+        <div className={`side-menu-container ${sideBarState ? 'open' : 'closed'} bg-dark`}>
+            <div className='w-100 d-flex flex-row-reverse'>
+                <div className='arrow-outer' onClick={sideBarStatusChange}>
+                    <div className={`arrow-inner ${sideBarState? 'open':'closed'}`}></div>
                 </div>
-            )}
-            {!sideBarState && (
-                <div className="side-menu-container closed">
-                    <button onClick={sideBarStatusChange} className="toggle-button">Open</button>
-                </div>
-            )}
-        </>
+            </div>
+            <div className="sidebar-content">
+                {sideBarState ? (
+                    <>content</>
+                ) : ''}
+            </div>
+        </div>
     );
 }

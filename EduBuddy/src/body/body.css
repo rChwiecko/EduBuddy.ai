@@ -1,5 +1,16 @@
-.body{    
-    display: flex; 
-    color: aqua;
-    width: 100%;
+/* body.css */
+
+.body-main {
+    transition: width 0.3s ease-in-out;
+    height: 100%; /* Ensure it takes the full height available */
+}
+
+/* When the sidebar is open */
+.sidebar-open {
+    width: 75%; /* Adjust this based on the sidebar width */
+}
+
+/* When the sidebar is closed */
+.sidebar-closed {
+    width: 90%; /* Takes up more space when the sidebar is closed */
 }

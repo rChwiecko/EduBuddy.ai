@@ -25,20 +25,21 @@ export default function Footer() {
     }
 
     return (
-        <div className='w-100 pb-4 d-flex justify-content-center align-items-center'>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="prompt" className='me-3'>Chat:</label> 
-                <input
-                    className='form-control flex-grow-1'
-                    id="prompt"
-                    name="prompt"
-                    placeholder="Chat With EduBuddy"
-                    type="text"
-                    value={prompt}  // Bind input value to state
-                    onChange={e => setPrompt(e.target.value)}  // Update state on input change
-                />
-                <button className="btn btn-primary ms-2" type="submit">Submit</button>
-            </form>
-        </div>
+<div className='container mt-5 w-100 d-flex justify-content-center pb-5'>
+    <form onSubmit={handleSubmit} className='d-flex align-items-center w-75'>
+        <input
+            className='form-control me-2'
+            id="prompt"
+            name="prompt"
+            placeholder="Chat With EduBuddy"
+            type="text"
+            value={prompt}  // Bind input value to state
+            onChange={e => setPrompt(e.target.value)}  // Update state on input change
+            style={{ width: '75%' }}  // Set the input width to 75% of the form
+        />
+        <button className="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
+
     );
 }

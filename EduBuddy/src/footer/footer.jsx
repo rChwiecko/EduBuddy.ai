@@ -3,18 +3,25 @@ import './footer.css'
 export default function Footer({addMessage}) {
     const [prompt, setPrompt] = useState(''); 
     const [currentMessage, setCurrentMessage] = useState('');
-    const [messages, setMessages] = useState([])
-    const handlePrompt = (prompt) => {
+    const handlePrompt = (promptMessage) => {
         fetch('http://localhost:3000/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json', 
             },
-            body: JSON.stringify({ prompt }),  // Send the prompt as a JSON string
-        }).then(data => {
-            // handleMessageReset(data)
-        }).catch(err => {
-            console.log(err);
+            body: JSON.stringify({ promptMessage }),  // Send the prompt as a JSON string
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();  // Parse the response as JSON
+        })
+        .then(data => {
+            console.log("response: ", data.response);  // Log the AI's response
+            addMessage(data.response, "res");  // Add the AI's response to your chat UI
+        })
+        .catch(err => {
+            console.log('Error:', err);  // Handle any errors that occur during the fetch
         });
     }
 
@@ -22,13 +29,9 @@ export default function Footer({addMessage}) {
     const handleSubmit = (event) => {
         event.preventDefault();  // Prevent the form from reloading the page
         handlePrompt(prompt);    // Call handlePrompt with the input value
-        addMessage(prompt, 'res')
+        addMessage(prompt, 'user')
         setPrompt('');           // Optionally clear the input after submission
     }
-
-    useEffect(() => {
-        console.log(messages);  // This will log the messages array every time it updates
-    }, [messages]);
 
     return (
             <div className='container mt-5 w-100 d-flex justify-content-center pb-5'>  

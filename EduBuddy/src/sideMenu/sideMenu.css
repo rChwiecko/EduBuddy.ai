@@ -37,7 +37,7 @@
 }
 
 .arrow-outer:hover {
-    background-color: #0070ff; /* New background color on hover */
+    background-color: #87CEEB; /* New background color on hover */
 }
 
 .arrow-inner {
@@ -52,7 +52,7 @@
 }
 
 .arrow-outer:hover .arrow-inner {
-    background-color: #0070ff; /* Keep the inner arrow visible by ensuring it contrasts with the hover background */
+    background-color: #87CEEB; /* Keep the inner arrow visible by ensuring it contrasts with the hover background */
     border-color: #fff; /* Ensure the border color remains visible */
 }
 

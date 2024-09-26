@@ -41,7 +41,7 @@ export default function Footer({addMessage}) {
                     className='input-box'
                     id="prompt"
                     name="prompt"
-                    placeholder="Chat With EduBuddy"
+                    placeholder="Chat with EduBuddy"
                     type="text"
                     value={prompt}  // Bind input value to state
                     onChange={e => setPrompt(e.target.value)}  // Update state on input change

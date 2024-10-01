@@ -3,7 +3,7 @@ require('dotenv').config({ path: '../.env' });
 const openai = new OpenAI();
 
 let chatHistory = [
-    { role: "system", content: "You are a chat bot that is for students, you help students manage/create schedules" }
+    { role: "system", content: "You are a chat bot named EduBuddy that is for students, you help students manage/create schedules" }
 ];
 
 async function prompt(userPrompt) {

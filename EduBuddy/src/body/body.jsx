@@ -11,7 +11,7 @@ export default function BodyMain() {
     }
     return (
         <div className='d-flex flex-grow-1 main'>
-            <div class="d-flex flex-column justify-content-between align-items-center w-100 h-100">
+            <div className="d-flex flex-column justify-content-between align-items-center w-100 h-100">
                 <Header />
                 <ChatSection messages={messages}/>
                 <Footer addMessage={addMessage}/>

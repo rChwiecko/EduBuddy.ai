@@ -2,39 +2,24 @@ const express = require('express');
 const cors = require('cors');
 const { prompt } = require('./chatBot.cjs');
 const app = express();
-const { Server } = require('socket.io');
-const http = require('http');
-const server = http.createServer(app);
-const io = new Server(server);
+const io = require('socket.io')(3000, {
+    cors: {
+        origin: ['http://localhost:5173']
+    }
+  }
+)
+
+
 
 app.use(express.static('public'));
 
-
-const sendPrompt = async (userPrompt) => {
-    const response = await prompt(userPrompt);  // Assuming 'prompt' is a function that handles the AI request
-    return response;
-}
-
-io.on('connection', (socket) => {
-    console.log('A user connected');
-    
-    socket.on('prompt', async (userPrompt) => {  // Use async here to handle the promise
-        try {
-            const response = await sendPrompt(userPrompt);  // Await the response from the AI
-            socket.emit('res', response);  // Send the AI response back to the client
-        } catch (error) {
-            console.error('Error handling prompt:', error);
-            socket.emit('res', 'Something went wrong');  // Handle error response
-        }
-    });
-});
-
-
-
-server.listen(3000, () => {
-    console.log("listening")
+io.on('connection', () => {
+    console.log("user has connected")
+    io.on('prompt', async (message) => {
+        const response = await prompt(message)
+        io.emit('res', response)
+    })
 })
-
 
 // app.use(express.json());  // Use express.json() to handle JSON bodies
 // app.use(cors())

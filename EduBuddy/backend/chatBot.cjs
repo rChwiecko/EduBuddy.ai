@@ -67,16 +67,3 @@ async function prompt(userPrompt) {
 // }
 
 module.exports = {prompt}
-
-async function func(){ 
-    try {
-        const res = await prompt("write a poem")
-        console.log(res)
-        const res1 = await prompt("what was my most recent question")
-        console.log(res1)
-    }catch(e){
-        console.log(e)
-    }
-
-}
-func()

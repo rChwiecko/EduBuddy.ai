@@ -1,7 +1,8 @@
 import React, { useState, useEffect} from 'react';
 import './footer.css'
+import { io } from 'socket.io-client'
 export default function Footer({addMessage}) {
-    const socket = io();
+    const socket = io('http://localhost:3000');
     const [prompt, setPrompt] = useState(''); 
     const [currentMessage, setCurrentMessage] = useState('');
     const handlePrompt = (promptMessage) => {
@@ -33,11 +34,11 @@ export default function Footer({addMessage}) {
         addMessage(prompt, 'user');
         setPrompt('');           // Optionally clear the input after submission
     }
-
-    socket.on('res', (res) => {
-        addMessage(res, 'res')
+    socket.on('connection', () => {
+        socket.on('res', (res) => {
+            addMessage(res, 'res')
+        })    
     })
-
 
     return (
             <div className='container mt-5 w-100 d-flex justify-content-center pb-5'>  
